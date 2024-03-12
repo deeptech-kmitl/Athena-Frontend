@@ -13,7 +13,7 @@ import KeenSliderWrapper from 'src/@core/styles/libs/keen-slider'
 import ApexChartWrapper from 'src/@core/styles/libs/react-apexcharts'
 
 const AnalyticsDashboard = () => {
-  const [data, setData] = useState([{
+  const [data] = useState([{
     id: "JU-30",
     name: 'hello world',
     status: 1,
@@ -27,6 +27,7 @@ const AnalyticsDashboard = () => {
     author: 'shared',
     endDate: '21 February 2024'
   },])
+
   return (
     <ApexChartWrapper>
       <KeenSliderWrapper>

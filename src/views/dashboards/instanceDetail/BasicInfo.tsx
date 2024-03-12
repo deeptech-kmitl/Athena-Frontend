@@ -30,7 +30,7 @@ interface Storage {
 
 const InstantDetail = () => {
   // ** States
-  const [values, setValues] = useState<State>({
+  const [values] = useState<State>({
     token: 'qqqqqq',
     showtoken: false
   })
@@ -106,7 +106,7 @@ const InstantDetail = () => {
                     fullWidth
                     id='form-layouts-separator-select'
                     value={storage.usestorage}
-                    onChange={handleStorageChange}
+                    onChange={() => handleStorageChange}
                     sx={{
                       display: 'flex',
                       flexDirection: 'row',

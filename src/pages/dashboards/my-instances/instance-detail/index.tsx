@@ -113,11 +113,13 @@ const InstanceDetail = () => {
     server: 'DGX-A100',
     location: 'Faculty of IT, KMITL'
   }]
-  const params = useSearchParams()
   const [instanceData, setInstanceData] = useState<DataItem | undefined>();
+  const params = useSearchParams();
+  const instanceId = params.get('id');
+
   useEffect(() => {
-    setInstanceData(data.find(item => item.id === params.get('id')))
-  }, [params.get('id')])
+    setInstanceData(data.find(item => item.id === instanceId));
+  }, [instanceId]);
 
   return (
     <ApexChartWrapper>

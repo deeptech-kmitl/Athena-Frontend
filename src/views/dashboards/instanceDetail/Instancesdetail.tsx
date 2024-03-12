@@ -13,40 +13,38 @@ import { Box } from '@mui/system'
 import Icon from 'src/@core/components/icon'
 
 // ** Types
-import { ThemeColor } from 'src/@core/layouts/types'
 
 // ** Custom Components Imports
 import CustomAvatar from 'src/@core/components/mui/avatar'
 import StatusOfflineIcon from '../dashboard/StatusOfflineIcon'
 import StatusOnlineIcon from '../dashboard/StatusOnlineIcon'
-import StatusIcon from '../dashboard/StatusIcon'
 
-interface DataType {
-  icon: string
-  stats: string
-  title: string
-  color: ThemeColor
-}
+// interface DataType {
+//   icon: string
+//   stats: string
+//   title: string
+//   color: ThemeColor
+// }
 
 interface DataTag {
   tag: string
 }
 
 
-const data: DataType[] = [
-  {
-    color: 'success',
-    stats: 'Running',
-    title: 'Normal',
-    icon: 'tabler:circle-half-2'
-  },
-  {
-    color: 'primary',
-    stats: '1',
-    title: 'Day Left',
-    icon: 'tabler:clock'
-  }
-]
+// const data: DataType[] = [
+//   {
+//     color: 'success',
+//     stats: 'Running',
+//     title: 'Normal',
+//     icon: 'tabler:circle-half-2'
+//   },
+//   {
+//     color: 'primary',
+//     stats: '1',
+//     title: 'Day Left',
+//     icon: 'tabler:clock'
+//   }
+// ]
 
 const dataTag: DataTag[] = [
   {
@@ -93,8 +91,8 @@ const rendertextstats = (props: any) => {
   }
 }
 
-const rendertextDate = (props: any) => {
-  console.log("props", props)
+// const rendertextDate = (props: any) => {
+//   console.log("props", props)
 
   const endDate = new Date(props.endDate);
   const createdAt = new Date(props.createdAt);
@@ -102,16 +100,16 @@ const rendertextDate = (props: any) => {
   console.log("เริ่ม", createdAt)
   console.log("จบ", endDate)
 
-  const timeDifference = endDate - createdAt;
-  const daysDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24))
+//   // const timeDifference = endDate - createdAt;
+//   // const daysDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24))
 
-  if (daysDifference === 0) {
-    return 1
-  }
-  else {
-    return daysDifference
-  }
-}
+//   // if (daysDifference === 0) {
+//   //   return 1
+//   // }
+//   // else {
+//   //   return daysDifference
+//   // }
+// }
 
 const renderStats = (props: any) => {
   console.log(props)
@@ -131,7 +129,7 @@ const renderStats = (props: any) => {
         <Icon icon='tabler:clock' fontSize='1.2rem' />
       </CustomAvatar>
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-        <Typography variant='h5'>{rendertextDate(props)}</Typography>
+        {/* <Typography variant='h5'>{rendertextDate(props)}</Typography> */}
         <Typography variant='body2'>Day Left</Typography>
       </Box>
     </Box>

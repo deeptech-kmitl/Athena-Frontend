@@ -13,8 +13,8 @@ import { ProjectTableRowType } from 'src/@fake-db/types';
 import OptionsMenu from 'src/@core/components/option-menu';
 
 import { FormControl, InputLabel, MenuItem, Select, Typography } from '@mui/material';
-import { hexToRGBA } from 'src/@core/utils/hex-to-rgba';
 import { useRouter } from 'next/router';
+import { hexToRGBA } from 'src/@core/utils/hex-to-rgba';
 import StatusIcon from './StatusIcon';
 import StatusOfflineIcon from './StatusOfflineIcon';
 import StatusOnlineIcon from './StatusOnlineIcon';
@@ -41,129 +41,130 @@ interface CellType {
 //   }
 // }
 
-const columns: GridColDef[] = [
-  {
-    flex: 0.1,
-    field: 'id',
-    minWidth: 150,
-    headerName: 'ID',
-    renderCell: ({ row }: CellType) => {
-      const router = useRouter()
-      const handleSelectedInstance = (id: string) => {
-        router.push(`/dashboards/my-instances/instance-detail/?id=${id}`)
-      };
-      return (
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-            <Typography noWrap sx={{
-              color: '#7367F0', fontWeight: 500, cursor: 'pointer', transition: 'all 0.3s ease', '&:hover': {
-                color: '#eee',
-              }
-            }} onClick={() => handleSelectedInstance(row.id)}>
-              #{row.id}
-            </Typography>
+const InstancesDashboard = ({ props, page }: { props: any, page: string }) => {
+  const router = useRouter()
+  const columns: GridColDef[] = [
+    {
+      flex: 0.1,
+      field: 'id',
+      minWidth: 150,
+      headerName: 'ID',
+      renderCell: ({ row }: CellType) => {
+        const handleSelectedInstance = (id: string) => {
+          router.push(`/dashboards/my-instances/instance-detail/?id=${id}`)
+        };
+
+        return (
+          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+            <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+              <Typography noWrap sx={{
+                color: '#7367F0', fontWeight: 500, cursor: 'pointer', transition: 'all 0.3s ease', '&:hover': {
+                  color: '#eee',
+                }
+              }} onClick={() => handleSelectedInstance(row.id)}>
+                #{row.id}
+              </Typography>
+            </Box>
           </Box>
-        </Box>
-      )
-    }
-  },
-  {
-    flex: 0.1,
-    minWidth: 105,
-    field: 'name',
-    headerName: 'NAME',
-    renderCell: ({ row }: CellType) => {
-      const router = useRouter()
-      const handleSelectedInstance = (id: string) => {
-        router.push(`/dashboards/my-instances/instance-detail/?id=${id}`)
-      };
-      return (
-        <Typography noWrap sx={{
-          color: '#7367F0', fontWeight: 500, cursor: 'pointer', transition: 'all 0.3s ease', '&:hover': {
-            color: '#eee',
-          }
-        }}
-          onClick={() => handleSelectedInstance(row.id)}
-        >
-          {row.name}
-        </Typography >)
-    }
-  },
-  {
-    flex: 0.1,
-    field: 'status',
-    minWidth: 120,
-    sortable: false,
-    renderHeader: () => {
-      return (<Typography noWrap>
-        <StatusIcon />
-      </Typography>)
+        )
+      }
     },
-    renderCell: ({ row }: CellType) => {
-      return (<Typography noWrap >
-        {row.status === 1 ? <StatusOnlineIcon /> : <StatusOfflineIcon />}
+    {
+      flex: 0.1,
+      minWidth: 105,
+      field: 'name',
+      headerName: 'NAME',
+      renderCell: ({ row }: CellType) => {
+        const handleSelectedInstance = (id: string) => {
+          router.push(`/dashboards/my-instances/instance-detail/?id=${id}`)
+        };
 
-      </Typography >)
-    }
-  },
-  {
-    flex: 0.1,
-    minWidth: 150,
-    field: 'author',
-    headerName: 'AUTHOR',
-    renderCell: ({ row }: CellType) => {
-      return (<Typography noWrap sx={{ color: 'text.secondary', fontWeight: 500 }}>
-        {row.author}
-      </Typography>)
-    }
-  },
-  {
-    flex: 0.1,
-    minWidth: 150,
-    field: 'endDate',
-    headerName: 'EXPIRY DATE',
-    renderCell: ({ row }: CellType) => {
-      return (<Typography noWrap sx={{ color: 'text.secondary', fontWeight: 500 }}>
-        {row.endDate}
-      </Typography>)
-    }
-  },
+        return (
+          <Typography noWrap sx={{
+            color: '#7367F0', fontWeight: 500, cursor: 'pointer', transition: 'all 0.3s ease', '&:hover': {
+              color: '#eee',
+            }
+          }}
+            onClick={() => handleSelectedInstance(row.id)}
+          >
+            {row.name}
+          </Typography >)
+      }
+    },
+    {
+      flex: 0.1,
+      field: 'status',
+      minWidth: 120,
+      sortable: false,
+      renderHeader: () => {
+        return (<Typography noWrap>
+          <StatusIcon />
+        </Typography>)
+      },
+      renderCell: ({ row }: CellType) => {
+        return (<Typography noWrap >
+          {row.status === 1 ? <StatusOnlineIcon /> : <StatusOfflineIcon />}
 
-  {
-    flex: 0.1,
-    minWidth: 100,
-    sortable: false,
-    field: 'actions',
-    headerName: 'Actions',
-    renderCell: () => (
-      <OptionsMenu
-        iconButtonProps={{ size: 'small', sx: { color: 'text.secondary' } }}
-        options={[
-          'Details',
-          'Archive',
-          { divider: true, dividerProps: { sx: { my: theme => `${theme.spacing(2)} !important` } } },
-          {
-            text: 'Delete',
-            menuItemProps: {
-              sx: {
-                color: 'error.main',
-                '&:not(.Mui-focusVisible):hover': {
+        </Typography >)
+      }
+    },
+    {
+      flex: 0.1,
+      minWidth: 150,
+      field: 'author',
+      headerName: 'AUTHOR',
+      renderCell: ({ row }: CellType) => {
+        return (<Typography noWrap sx={{ color: 'text.secondary', fontWeight: 500 }}>
+          {row.author}
+        </Typography>)
+      }
+    },
+    {
+      flex: 0.1,
+      minWidth: 150,
+      field: 'endDate',
+      headerName: 'EXPIRY DATE',
+      renderCell: ({ row }: CellType) => {
+        return (<Typography noWrap sx={{ color: 'text.secondary', fontWeight: 500 }}>
+          {row.endDate}
+        </Typography>)
+      }
+    },
+    {
+      flex: 0.1,
+      minWidth: 100,
+      sortable: false,
+      field: 'actions',
+      headerName: 'Actions',
+      renderCell: () => (
+        <OptionsMenu
+          iconButtonProps={{ size: 'small', sx: { color: 'text.secondary' } }}
+          options={[
+            'Details',
+            'Archive',
+            { divider: true, dividerProps: { sx: { my: theme => `${theme.spacing(2)} !important` } } },
+            {
+              text: 'Delete',
+              menuItemProps: {
+                sx: {
                   color: 'error.main',
-                  backgroundColor: theme => hexToRGBA(theme.palette.error.main, 0.08)
+                  '&:not(.Mui-focusVisible):hover': {
+                    color: 'error.main',
+                    backgroundColor: theme => hexToRGBA(theme.palette.error.main, 0.08)
+                  }
                 }
               }
             }
-          }
-        ]}
-      />
-    )
-  }
-]
+          ]}
+        />
+      )
+    }
+  ]
 
-const InstancesDashboard = ({ props, page }: { props: any, page: string }) => {
   // ** State
-  const [data, setData] = useState(props)
+  const [data] = useState(props)
   const [value, setValue] = useState<string>('')
+
   // const [paginationModel, setPaginationModel] = useState({ page: 0, pageSize: 5 })
 
   useEffect(() => {
@@ -195,6 +196,7 @@ const InstancesDashboard = ({ props, page }: { props: any, page: string }) => {
               placeholder='Search Instances'
               onChange={e => handleFilter(e.target.value)}
             />
+
             {/* <Autocomplete
               options={['Option 1', 'Option 2', 'Option 3']}
               // renderInput=""
@@ -205,9 +207,7 @@ const InstancesDashboard = ({ props, page }: { props: any, page: string }) => {
               <Select
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
-                // value={3}
                 label="Age"
-              // onChange={handleChange}
               >
                 <MenuItem value={10}>online</MenuItem>
                 <MenuItem value={20}>offline</MenuItem>
@@ -225,12 +225,15 @@ const InstancesDashboard = ({ props, page }: { props: any, page: string }) => {
       />
       <DataGrid
         autoHeight
+
         // pagination
         rows={data}
         rowHeight={62}
         columns={columns}
+
         // checkboxSelection
         pageSizeOptions={[5, 10]}
+
       // disableRowSelectionOnClick
       // paginationModel={paginationModel}
       // onPaginationModelChange={setPaginationModel}

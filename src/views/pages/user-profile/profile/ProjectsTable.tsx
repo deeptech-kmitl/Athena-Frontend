@@ -1,14 +1,14 @@
 // ** React Imports
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 // ** MUI Components
+import AvatarGroup from '@mui/material/AvatarGroup'
 import Box from '@mui/material/Box'
 import Card from '@mui/material/Card'
-import Typography from '@mui/material/Typography'
 import CardHeader from '@mui/material/CardHeader'
-import AvatarGroup from '@mui/material/AvatarGroup'
-import { DataGrid, GridColDef } from '@mui/x-data-grid'
 import LinearProgress from '@mui/material/LinearProgress'
+import Typography from '@mui/material/Typography'
+import { DataGrid, GridColDef } from '@mui/x-data-grid'
 
 // ** Third Party Imports
 import axios from 'axios'
@@ -18,9 +18,9 @@ import { ThemeColor } from 'src/@core/layouts/types'
 import { ProjectTableRowType } from 'src/@fake-db/types'
 
 // ** Custom Components Imports
-import OptionsMenu from 'src/@core/components/option-menu'
 import CustomAvatar from 'src/@core/components/mui/avatar'
 import CustomTextField from 'src/@core/components/mui/text-field'
+import OptionsMenu from 'src/@core/components/option-menu'
 
 // ** Utils Import
 import { getInitials } from 'src/@core/utils/get-initials'
@@ -84,7 +84,7 @@ const columns: GridColDef[] = [
     headerName: 'Team',
     renderCell: ({ row }: CellType) => (
       <AvatarGroup className='pull-up'>
-        {row.avatarGroup.map((src, index) => (
+        {row?.avatarGroup?.map((src, index) => (
           <CustomAvatar key={index} src={src} sx={{ height: 26, width: 26 }} />
         ))}
       </AvatarGroup>

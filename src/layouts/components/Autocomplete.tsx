@@ -353,17 +353,18 @@ const DefaultSuggestions = ({ setOpenDialog }: DefaultSuggestionsProps) => {
   )
 }
 
-const AutocompleteComponent = ({ hidden, settings }: Props) => {
+const AutocompleteComponent = ({ hidden }: Props) => {
   // ** States
   const [isMounted, setIsMounted] = useState<boolean>(false)
   const [searchValue, setSearchValue] = useState<string>('')
   const [openDialog, setOpenDialog] = useState<boolean>(false)
   const [options, setOptions] = useState<AppBarSearchType[]>([])
 
+
+  // const { layout } = settings
   // ** Hooks & Vars
   const theme = useTheme()
   const router = useRouter()
-  const { layout } = settings
   const wrapper = useRef<HTMLDivElement>(null)
   const fullScreenDialog = useMediaQuery(theme.breakpoints.down('sm'))
 

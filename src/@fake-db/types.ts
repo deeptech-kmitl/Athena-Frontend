@@ -58,6 +58,10 @@ export type ProjectTableRowType = {
   author: string
   status: number
   avatarColor?: ThemeColor
+  avatar?: string
+  date?: string
+  leader?: string
+  avatarGroup?: string[]
 }
 export type ProfileHeaderType = {
   fullName: string

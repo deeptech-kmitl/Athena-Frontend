@@ -13,7 +13,7 @@ import KeenSliderWrapper from 'src/@core/styles/libs/keen-slider'
 import ApexChartWrapper from 'src/@core/styles/libs/react-apexcharts'
 
 const MyInstances = () => {
-  const [data, setData] = useState([{
+  const [data] = useState([{
     id: "JU-30",
     name: 'hello world',
     status: 1,
@@ -61,6 +61,7 @@ const MyInstances = () => {
     server: 'DGX-A100',
     location: 'Faculty of IT, KMITL'
   }])
+
   return (
     <ApexChartWrapper>
       <KeenSliderWrapper>
