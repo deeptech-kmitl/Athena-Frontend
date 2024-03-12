@@ -172,7 +172,7 @@ const LoginPage = () => {
             </Box>
             <Button
               fullWidth
-              onClick={() => router.push('https://8181-161-246-49-29.ngrok-free.app/auth/login/google')}
+              onClick={() => router.push(`https://8181-161-246-49-29.ngrok-free.app/auth/login/google?back_to=${window.location.href}`)}
               variant='contained'
               sx={{
                 mb: 4,
