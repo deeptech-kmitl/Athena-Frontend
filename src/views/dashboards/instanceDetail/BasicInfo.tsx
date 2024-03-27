@@ -1,9 +1,3 @@
-// ---- แก้ไขทำ Instant Detail ----
-
-// ** React Imports
-import { useState } from 'react'
-
-// ** MUI Imports
 import { Grid } from '@mui/material'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
@@ -11,11 +5,8 @@ import MenuItem from '@mui/material/MenuItem'
 import { SelectChangeEvent } from '@mui/material/Select'
 import Typography from '@mui/material/Typography'
 import { Box } from '@mui/system'
-
-// ** Icon Imports
+import { useState } from 'react'
 import Icon from 'src/@core/components/icon'
-
-// ** Custom Components Imports
 import CustomAvatar from 'src/@core/components/mui/avatar'
 import CustomTextField from 'src/@core/components/mui/text-field'
 

@@ -18,33 +18,9 @@ import Icon from 'src/@core/components/icon'
 import CustomAvatar from 'src/@core/components/mui/avatar'
 import StatusOfflineIcon from '../dashboard/StatusOfflineIcon'
 import StatusOnlineIcon from '../dashboard/StatusOnlineIcon'
-
-// interface DataType {
-//   icon: string
-//   stats: string
-//   title: string
-//   color: ThemeColor
-// }
-
 interface DataTag {
   tag: string
 }
-
-
-// const data: DataType[] = [
-//   {
-//     color: 'success',
-//     stats: 'Running',
-//     title: 'Normal',
-//     icon: 'tabler:circle-half-2'
-//   },
-//   {
-//     color: 'primary',
-//     stats: '1',
-//     title: 'Day Left',
-//     icon: 'tabler:clock'
-//   }
-// ]
 
 const dataTag: DataTag[] = [
   {
@@ -91,25 +67,6 @@ const rendertextstats = (props: any) => {
   }
 }
 
-// const rendertextDate = (props: any) => {
-//   console.log("props", props)
-
-  const endDate = new Date(props.endDate);
-  const createdAt = new Date(props.createdAt);
-
-  console.log("เริ่ม", createdAt)
-  console.log("จบ", endDate)
-
-//   // const timeDifference = endDate - createdAt;
-//   // const daysDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24))
-
-//   // if (daysDifference === 0) {
-//   //   return 1
-//   // }
-//   // else {
-//   //   return daysDifference
-//   // }
-// }
 
 const renderStats = (props: any) => {
   console.log(props)
@@ -178,30 +135,21 @@ const InstantDetail = ({ props }: any) => {
   return (
     <Card sx={{ position: 'relative' }} style={{ lineHeight: '10' }}>
       <CardContent>
-        {/* change text */}
         <Typography variant='h3' sx={{ mb: 4 }} style={{ textAlign: 'center' }}>
           {props.name}
         </Typography>
-
-        {/* add tag */}
         <Box sx={{ mb: 5, flexDirection: 'row', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           {renderTag()}
         </Box>
-
         <Grid spacing={2} container sx={{ mb: 5 }} style={{ display: 'flex', justifyContent: 'center' }}>
           {renderStats(props)}
         </Grid>
-
         <Divider sx={{ mb: 5 }} />
-
         <Typography variant='subtitle1' sx={{ mb: 7 }} style={{ color: '#8692D0' }}>
           DETAILS
         </Typography>
-
         <Grid>{renderDetail(props)}</Grid>
-
         <Divider sx={{ mb: 5 }} />
-
         <Grid container xs={12} md={12} spacing={1} style={{ display: 'flex', justifyContent: 'center' }}>
           <Button
             type='submit'

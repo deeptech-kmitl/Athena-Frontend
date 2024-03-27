@@ -12,6 +12,7 @@ import { Box } from '@mui/system';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import ApexChartWrapper from 'src/@core/styles/libs/react-apexcharts';
+import Files from 'src/views/dashboards/instanceDetail/files';
 
 interface TabPanelProps {
   children?: React.ReactNode
@@ -146,17 +147,13 @@ const InstanceDetail = () => {
                 {...allyProps(0)}
               />
               <Tab disableRipple icon={<FileIcon />} iconPosition='start' label='Files' {...allyProps(1)} />
-              <Tab disableRipple icon={<PersonIcon />} iconPosition='start' label='Security' {...allyProps(2)} />
             </Tabs>
           </Box>
           <CustomTabPanel value={value} index={0}>
             <BasicInfo />
           </CustomTabPanel>
           <CustomTabPanel value={value} index={1}>
-            22
-          </CustomTabPanel>
-          <CustomTabPanel value={value} index={2}>
-            33
+            <Files />
           </CustomTabPanel>
         </Grid>
       </Grid>
