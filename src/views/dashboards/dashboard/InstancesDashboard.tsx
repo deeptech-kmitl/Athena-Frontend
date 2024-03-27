@@ -184,7 +184,9 @@ const InstancesDashboard = ({ props, page }: { props: any, page: string }) => {
         title={
           <>
             <span>My Instances</span>
-            <Button variant="contained" sx={{ ml: 4 }} >+ Add Instance</Button>
+            <Button onClick={() => {
+              router.push(`/dashboards/my-instances/new-instance`)
+            }} variant="contained" sx={{ ml: 4 }} >+ Add Instance</Button>
           </>
         }
         titleTypographyProps={{ sx: { mb: [2, 0] } }}
