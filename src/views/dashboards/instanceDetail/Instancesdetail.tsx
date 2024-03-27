@@ -99,6 +99,9 @@ const rendertextDate = (props: any) => {
   const endDate = new Date(props.endDate);
   const createdAt = new Date(props.createdAt);
 
+  console.log("เริ่ม", createdAt)
+  console.log("จบ", endDate)
+
   const timeDifference = endDate - createdAt;
   const daysDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24))
 
