@@ -4,6 +4,7 @@ import Grid from '@mui/material/Grid';
 
 import BasicInfo from 'src/views/dashboards/instanceDetail/BasicInfo';
 import Instancesdetail from 'src/views/dashboards/instanceDetail/Instancesdetail';
+import DoneInstance from 'src/views/dashboards/dashboard/Doneinstance';
 
 import FileIcon from '@mui/icons-material/InsertDriveFileOutlined';
 import PersonIcon from '@mui/icons-material/Person';
