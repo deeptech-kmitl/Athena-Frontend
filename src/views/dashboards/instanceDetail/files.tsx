@@ -27,53 +27,44 @@ const Files = () => {
         <CardContent>
           <Grid item xs={12} md={12} sx={{ flexDirection: 'row', display: 'flex' }}>
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 7 }}>
-              <CustomAvatar skin='light' variant='rounded' sx={{ mr: 2, width: 30, height: 30 }}>
-                <Icon icon='tabler:key' fontSize='1.2rem' />
-              </CustomAvatar>
               <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                <Typography variant='h5' sx={{ mr: 2 }}>Files discoverer</Typography>
-                <Box sx={{ ml: 'auto' }}>
+                <Typography variant='h5' sx={{ mr: 2, fontSize: '18px' }}>Files discoverer</Typography>
+                <Box sx={{ m: 'auto' }}>
                   <Button
                     type='submit'
                     variant='contained'
                     sx={{
+                      mr: 2,
                       backgroundColor: '#7367F029',
-                      color: '#7367F0',
+                      color: '#FFFFFF99',
                       '&:hover': {
                         backgroundColor: '#7367F029',
+                        color: '#FFFFFF99'
+                      }
+                    }}
+                  >
+                    <Icon icon='tabler:file-upload' fontSize='1.2rem' style={{ marginRight: 2 }} />
+                    Upload Files
+                  </Button>
+
+                  <Button
+                    type='submit'
+                    variant='contained'
+                    sx={{
+                      backgroundColor: '#7367F0',
+                      color: '#FFFFFF',
+                      '&:hover': {
+                        backgroundColor: '#7367F0',
                         color: '#FFFFFF'
                       }
                     }}
                   >
-                    Extend
+                    <Icon icon='tabler:file-download' fontSize='1.2rem' style={{ marginRight: 2 }} />
+                    Zip & Download
                   </Button>
                 </Box>
               </Box>
             </Box>
-          </Grid>
-
-          <Grid item xs={12} md={12}>
-            <form>
-              <Grid container spacing={5}>
-                <Grid item xs={6}>
-                  <CustomTextField
-                    fullWidth
-                    label='Access Link URL'
-                    placeholder='https://ez-vps.co/instances/Ag8s744r2Lbs'
-                    disabled
-                  />
-                </Grid>
-                <Grid item xs={6}>
-                  <CustomTextField
-                    fullWidth
-                    label='Access Token'
-                    value={values.token}
-                    type={values.showtoken ? 'text' : 'password'}
-                    disabled
-                  />
-                </Grid>
-              </Grid>
-            </form>
           </Grid>
 
         </CardContent>
