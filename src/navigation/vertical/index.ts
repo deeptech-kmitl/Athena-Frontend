@@ -21,7 +21,7 @@ const navigation = (): VerticalNavItemsType => {
     {
       title: 'Credits',
       icon: 'tabler:coin',
-      path: '/apps/email'
+      path: '/credit'
     },
     {
       title: 'Preferences',
