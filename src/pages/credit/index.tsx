@@ -7,7 +7,6 @@ import CardHeader from '@mui/material/CardHeader';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import Grid from '@mui/material/Grid'
 
-
 import CustomTextField from 'src/@core/components/mui/text-field';
 // ** Icon Imports
 import Icon from 'src/@core/components/icon'
@@ -27,14 +26,14 @@ interface CellType {
 
 const Credits = () => {
     const [data] = useState([{
-        id: "JU-30",
+        id: "Noppawan",
         note: 'Instance Reserve',
         transaction: 'Payment',
         amount: 30,
         datetime: '20 February 2024-19:20:35'
     },
     {
-        id: "JU-31",
+        id: "Goten",
         note: 'Account Transfer',
         transaction: 'Transfer in',
         amount: 20,
@@ -53,14 +52,21 @@ const Credits = () => {
 
                 return (
                     <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                            <Typography noWrap sx={{
-                                color: '#7367F0', fontWeight: 500, cursor: 'pointer', transition: 'all 0.3s ease', '&:hover': {
-                                    color: '#eee',
-                                }
-                            }} onClick={() => handleSelectedInstance(row.id)}>
-                                #{row.id}
-                            </Typography>
+                        <Box sx={{ display: 'flex' }}>
+                            <CustomAvatar alt="Remy Sharp" src="/public/images/avatars/1.png" />
+                            <Box sx={{ display: 'flex', flexDirection: 'column', ml: '10px' }}>
+                                <Typography noWrap sx={{
+                                    color: '#ffff', fontWeight: 400, cursor: 'pointer', transition: 'all 0.3s ease', '&:hover': {
+                                        color: '#eee',
+                                    }
+                                }} onClick={() => handleSelectedInstance(row.id)}>
+                                    {row.id}
+                                </Typography>
+                                <Typography noWrap sx={{ color: 'text.secondary', fontWeight: 300 }}>
+                                    {row.transaction}
+                                </Typography>
+                            </Box>
+
                         </Box>
                     </Box>
                 )
@@ -135,7 +141,7 @@ const Credits = () => {
     }
 
     return (
-        <Grid>
+        <Grid >
             <Grid container xs={12} md={12} sx={{ border: 1, borderRadius: '6px', backgroundColor: '#FF9F4329', borderColor: '#FF9F4329', px: '12px', py: '15px' }}>
                 <Grid item xs={10} md={10}>
                     <Box sx={{ display: 'flex' }}>
@@ -187,7 +193,7 @@ const Credits = () => {
                     </div>
                 </Grid>
             </Grid>
-            < Card >
+            < Card sx={{ mt: '30px' }}>
                 <CardHeader
                     action={
                         <>
