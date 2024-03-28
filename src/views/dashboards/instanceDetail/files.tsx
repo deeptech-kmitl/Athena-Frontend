@@ -5,6 +5,7 @@ import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import Typography from '@mui/material/Typography'
 import { Box } from '@mui/system'
+import { styled } from '@mui/material/styles';
 
 import Icon from 'src/@core/components/icon'
 
@@ -15,6 +16,18 @@ interface State {
   token: string
   showtoken: boolean
 }
+
+const VisuallyHiddenInput = styled('input')({
+  clip: 'rect(0 0 0 0)',
+  clipPath: 'inset(50%)',
+  height: 1,
+  overflow: 'hidden',
+  position: 'absolute',
+  bottom: 0,
+  left: 0,
+  whiteSpace: 'nowrap',
+  width: 1,
+});
 
 const Files = () => {
   const [values] = useState<State>({
@@ -31,8 +44,10 @@ const Files = () => {
                 <Typography variant='h5' sx={{ mr: 2, fontSize: '18px' }}>Files discoverer</Typography>
                 <Box sx={{ m: 'auto' }}>
                   <Button
-                    type='submit'
-                    variant='contained'
+                    component="label"
+                    role={undefined}
+                    variant="contained"
+                    tabIndex={-1}
                     sx={{
                       mr: 2,
                       backgroundColor: '#7367F029',
@@ -45,6 +60,7 @@ const Files = () => {
                   >
                     <Icon icon='tabler:file-upload' fontSize='1.2rem' style={{ marginRight: 2 }} />
                     Upload Files
+                    <VisuallyHiddenInput type="file" />
                   </Button>
 
                   <Button
