@@ -38,48 +38,53 @@ const Files = () => {
     <Grid>
       <Card sx={{ position: 'relative', mb: 5 }} style={{ lineHeight: '1', height: 'auto' }}>
         <CardContent>
-          <Grid item xs={12} md={12} sx={{ flexDirection: 'row', display: 'flex' }}>
-            <Box sx={{ display: 'flex', alignItems: 'center', mb: 7 }}>
-              <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                <Typography variant='h5' sx={{ mr: 2, fontSize: '18px' }}>Files discoverer</Typography>
-                <Box sx={{ m: 'auto' }}>
-                  <Button
-                    component="label"
-                    role={undefined}
-                    variant="contained"
-                    tabIndex={-1}
-                    sx={{
-                      mr: 2,
-                      backgroundColor: '#7367F029',
-                      color: '#FFFFFF99',
-                      '&:hover': {
-                        backgroundColor: '#7367F029',
-                        color: '#FFFFFF99'
-                      }
-                    }}
-                  >
-                    <Icon icon='tabler:file-upload' fontSize='1.2rem' style={{ marginRight: 2 }} />
-                    Upload Files
-                    <VisuallyHiddenInput type="file" />
-                  </Button>
+          <Grid container xs={12} md={12} sx={{ flexDirection: 'row', display: 'flex' }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', mb: 7, width: '100%' }}>
+              <Grid item xs={12} md={12} spacing={2} sx={{ display: 'flex', alignItems: 'center' }}>
+                <Grid item xs={8} md={8}>
+                  <Typography variant='h5' sx={{ mr: 2, fontSize: '18px' }}>Files discoverer</Typography>
+                </Grid>
 
-                  <Button
-                    type='submit'
-                    variant='contained'
-                    sx={{
-                      backgroundColor: '#7367F0',
-                      color: '#FFFFFF',
-                      '&:hover': {
+                <Grid xs={9} md={9} sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+                  <Box sx={{ display: 'flex', flexDirection: 'row' }}>
+                    <Button
+                      component="label"
+                      role={undefined}
+                      variant="contained"
+                      tabIndex={-1}
+                      sx={{
+                        mr: 2,
+                        backgroundColor: '#7367F029',
+                        color: '#FFFFFF99',
+                        '&:hover': {
+                          backgroundColor: '#7367F029',
+                          color: '#FFFFFF99'
+                        }
+                      }}
+                    >
+                      <Icon icon='tabler:file-upload' fontSize='1.2rem' style={{ marginRight: 2 }} />
+                      Upload Files
+                      <VisuallyHiddenInput type="file" />
+                    </Button>
+
+                    <Button
+                      type='submit'
+                      variant='contained'
+                      sx={{
                         backgroundColor: '#7367F0',
-                        color: '#FFFFFF'
-                      }
-                    }}
-                  >
-                    <Icon icon='tabler:file-download' fontSize='1.2rem' style={{ marginRight: 2 }} />
-                    Zip & Download
-                  </Button>
-                </Box>
-              </Box>
+                        color: '#FFFFFF',
+                        '&:hover': {
+                          backgroundColor: '#7367F0',
+                          color: '#FFFFFF'
+                        }
+                      }}
+                    >
+                      <Icon icon='tabler:file-download' fontSize='1.2rem' style={{ marginRight: 2 }} />
+                      Zip & Download
+                    </Button>
+                  </Box>
+                </Grid>
+              </Grid>
             </Box>
           </Grid>
 
