@@ -9,51 +9,13 @@ import CardContent from '@mui/material/CardContent'
 import Icon from 'src/@core/components/icon'
 import CustomAvatar from 'src/@core/components/mui/avatar'
 
-import FileIcon from '@mui/icons-material/InsertDriveFileOutlined';
-import PersonIcon from '@mui/icons-material/Person';
-import { Tab, Tabs, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import ApexChartWrapper from 'src/@core/styles/libs/react-apexcharts';
-import Files from 'src/views/dashboards/instanceDetail/files';
 
-interface TabPanelProps {
-    children?: React.ReactNode
-    index: number
-    value: number
-}
-
-
-
-function CustomTabPanel(props: TabPanelProps) {
-    const { children, value, index, ...other } = props
-
-    return (
-        <div
-            role='tabpanel'
-            hidden={value !== index}
-            id={`simple=tabpanel-${index}`}
-            aria-labelledby={`simple-tab-${index}`}
-            {...other}
-        >
-            {value === index && (
-                <Box sx={{ p: 3 }}>
-                    <Typography>{children}</Typography>
-                </Box>
-            )}
-        </div>
-    )
-}
-
-function allyProps(index: number) {
-    return {
-        id: `simple-tab-${index}`,
-        'aria-controls': `simple-tabpanel-${index}`
-    }
-}
-
-const InstanceDetail = () => {
+const DoneInstance = () => {
     const [value, setValue] = React.useState(0)
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
         setValue(newValue)
@@ -120,7 +82,7 @@ const InstanceDetail = () => {
     }]
     const [instanceData, setInstanceData] = useState<DataItem | undefined>();
     const params = useSearchParams();
-    const instanceId = params.get('id');
+    const instanceId = 'JU-33';
 
     useEffect(() => {
         setInstanceData(data.find(item => item.id === instanceId));
@@ -317,4 +279,4 @@ const InstanceDetail = () => {
     )
 }
 
-export default InstanceDetail
+export default DoneInstance
